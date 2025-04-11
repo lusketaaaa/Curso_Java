@@ -1,0 +1,46 @@
+package org.example;
+import java.util.Locale;
+import java.util.Scanner;
+import java.lang.Math;
+
+public class Main {
+    public static void main(String[] args) {
+
+        Locale.setDefault(Locale.US);
+        Scanner sc = new Scanner(System.in);
+
+
+        System.out.print("How many rooms will be rented? ");
+        String[] emails = new String[11];
+        String[] names = new String[11];
+        int[] room = new int[11];
+        int nRooms = sc.nextInt();
+        sc.nextLine();
+        for(int x = 1; x <= nRooms; x++) {
+            System.out.println("Rent #" + x + ":");
+            System.out.print("Name: ");
+            String name = sc.nextLine();
+
+            System.out.print("Email: ");
+            String email = sc.nextLine();
+
+            System.out.println("Room: ");
+            int roomNumber = sc.nextInt();
+            sc.nextLine();
+            emails[roomNumber] = email;
+            names[roomNumber] = name;
+            room[roomNumber] = roomNumber;
+        }
+        System.out.println();
+        System.out.println("Busy rooms: ");
+        for(int y = 1; y < 11; y++) {
+            if(names[y] != null) {
+                System.out.println(room[y] + ": " + names[y] + ", " + emails[y]);
+
+            }
+        }
+        
+        sc.close();
+    }
+}
+
